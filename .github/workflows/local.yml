@@ -34,5 +34,6 @@ jobs:
 
       - name: SetLocale
         run: |
+          php --info
           php CharsetConverter.php
           
