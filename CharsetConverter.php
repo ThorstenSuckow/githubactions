@@ -226,8 +226,7 @@ class CharsetConverter
 }
 
 $decoder = new CharsetConverter();
-echo setlocale(LC_ALL, 0);
-echo "! -> ! - ". $decoder->convert("€", "UTF-8", "ISO-8859-1") . " --/";
+echo "! -> ! - ". $decoder->convert("\xE2\x82\xAc", "UTF-8", "ISO-8859-1") . " --/\n";
 
 $text = "This is the Euro symbol '€'.";
 
