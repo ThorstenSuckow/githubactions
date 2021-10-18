@@ -1,0 +1,53 @@
+name: Unit Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      COMPOSER_NO_INTERACTION: 1
+      CI_ENV: github
+
+    strategy:
+      matrix:
+        php: [7.4]
+        dependency-version: [prefer-stable]
+
+    name: P${{ matrix.php }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v1
+
+      - name: SetLocale
+        run: |
+          sudo apt-get update && sudo apt-get install tzdata locales -y && sudo locale-gen pt_BR.UTF-8
+          sudo localectl set-locale LANG="pt_BR.UTF-8"
+          export LANG="pt_BR.UTF-8"
+          sudo update-locale
+          echo "Testing language settings"
+          echo "All languages..."
+          locale -a
+          echo "Actual locale"
+          locale
+          echo "Actual numeric settings"
+          locale -c -k LC_NUMERIC
+          echo "LANG Variable"
+          echo "$LANG"
+          echo "LocaleCtl"
+          localectl status
+          echo "Printing decimal"
+          printf "%'.3f\n" 123123,123
