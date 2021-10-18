@@ -225,6 +225,8 @@ class CharsetConverter
     }
 }
 
+echo implode(",", mb_detect_order());
+
 $decoder = new CharsetConverter();
 echo "! -> ! - ". $decoder->convert("\xE2\x82\xAc", "UTF-8", "ISO-8859-1") . " --/\n";
 
