@@ -98,11 +98,14 @@ class CharsetConverter
             if ($conv === false || $conv === "" || $this->lastIconvError) {
                 $this->lastIconvError = false;
                 $conv = iconv($fromCharset, $targetCharset . "//TRANSLIT", $text);
+                var_dump("1 " . $conv);
             }
             if ($conv === false || $conv === "" || $this->lastIconvError) {
                 $this->lastIconvError = false;
                 $conv = iconv($fromCharset, $targetCharset . "//IGNORE", $text);
+                 var_dump("2 " . $conv);
             }
+             var_dump("3 " . $conv);
             if ($conv !== false && !$this->lastIconvError) {
                 $text = $conv;
             }
