@@ -36,7 +36,4 @@ jobs:
       - name: SetLocale
         run: |
           php CharsetConverter.php
-          localectl status
-          sudo localectl set-locale LANG="en_US.UTF-8"
-          localectl status         
-          php CharsetConverter.php
+          
