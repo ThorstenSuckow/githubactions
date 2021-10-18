@@ -54,6 +54,7 @@ class CharsetConverter
      */
     public function convert(string $text, string $fromCharset = "", string $targetCharset = "UTF-8"): string
     {
+        var_dump("--" . $text . "--");
         if ($text === "") {
             return $text;
         }
