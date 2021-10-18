@@ -28,10 +28,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          extensions: mbstring, iconv
           php-version: ${{ matrix.php }}
-          coverage: none
+          extensions: curl
           tools: composer:v1
+          coverage: none
+      - name: Install PHP 7 dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
 
       - name: SetLocale
         run: |
