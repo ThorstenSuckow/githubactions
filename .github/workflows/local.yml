@@ -29,11 +29,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: curl
           tools: composer:v1
           coverage: none
-      - name: Install PHP 7 dependencies
-        run: composer update --prefer-dist --no-interaction --no-progress
 
       - name: SetLocale
         run: |
