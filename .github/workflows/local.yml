@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        php: [7.4]
+        php: [8]
         dependency-version: [prefer-stable]
 
     name: P${{ matrix.php }}
@@ -24,17 +24,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          repository: conjoon/php-ms-imapuser
 
-    #  - name: Setup PHP
-     #   uses: shivammathur/setup-php@v2
-  #     with:
-    #      php-version: ${{ matrix.php }}
-    #      extensions: iconv
-    #      tools: composer:v1
-   #       coverage: none
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: iconv
+          tools: composer:v1
+          coverage: none
 
       - name: SetLocale
         run: |
-          php --info
-          php CharsetConverter.php
+          composer i
+          vendor/bin/phpunit
           
