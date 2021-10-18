@@ -53,7 +53,7 @@ class CharsetConverter
      * @return string
      */
     public function convert(string $text, string $fromCharset = "", string $targetCharset = "UTF-8"): string
-    {
+    {var_dump(iconv_get_encoding());
         var_dump("--" . $text . "--");
         if ($text === "") {
             return $text;
