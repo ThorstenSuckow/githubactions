@@ -37,6 +37,6 @@ jobs:
 
       - name: SetLocale
         run: |
-          composer i
+          composer i --ignore-platform-reqs
           vendor/bin/phpunit
           
