@@ -37,7 +37,6 @@ jobs:
 
       - name: SetLocale
         run: |
-          sudo apt-get install -y php-iconv
           composer i 
           vendor/bin/phpunit
           
