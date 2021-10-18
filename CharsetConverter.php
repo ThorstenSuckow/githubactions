@@ -222,5 +222,5 @@ class CharsetConverter
 }
 
 $decoder = new CharsetConverter();
-
+echo setlocale(LC_ALL, 0);
 echo "! -> ! - ". $decoder->convert("€", "UTF-8", "ISO-8859-1") . " --/";
