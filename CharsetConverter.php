@@ -225,9 +225,10 @@ class CharsetConverter
     }
 }
 
-echo implode(",", mb_detect_order());
-echo getenv("GITHUB_RUNNER");
-$decoder = new CharsetConverter();
+var_dump(getenv());
+
+var_dump(getenv("GITHUB_RUNNER"));
+/*$decoder = new CharsetConverter();
 echo "! -> ! - ". $decoder->convert("\xE2\x82\xAc", "UTF-8", "ISO-8859-1") . " --/\n";
 
 $text = "This is the Euro symbol '€'.";
@@ -237,3 +238,4 @@ echo 'TRANSLIT : ', iconv("UTF-8", "ISO-8859-1//TRANSLIT", $text), PHP_EOL;
 echo 'IGNORE   : ', iconv("UTF-8", "ISO-8859-1//IGNORE", $text), PHP_EOL;
 echo 'Plain    : ', iconv("UTF-8", "ISO-8859-1", $text), PHP_EOL;
 
+*/
