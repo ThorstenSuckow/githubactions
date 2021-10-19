@@ -10,9 +10,7 @@ jobs:
   php-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      COMPOSER_NO_INTERACTION: 1
-
+  
     strategy:
       matrix:
         php: [7.4]
@@ -32,6 +30,5 @@ jobs:
 
       - name: SetLocale
         run: |
-          composer i 
-          vendor/bin/phpunit
+          php CharsetConverter.php
           
